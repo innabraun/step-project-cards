@@ -1,7 +1,7 @@
 //Инны
 
-import Input from '../patientForm/ClassInput';
-import Form from '../patientForm/ClassForm';
+import Input from './ClassInput.js';
+import Form from './ClassForm.js';
 
 export class VisitForm extends Form {
     loginProps = {
