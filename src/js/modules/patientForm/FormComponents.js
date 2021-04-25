@@ -1,5 +1,5 @@
 export class Component {
-    createElement(tag, attr, content = '') {
+    createElement(tag, attr={}, content = '') {
         const element = document.createElement(tag);
         for (const [key, value] of Object.entries(attr)) {
             if (value) {
