@@ -3,16 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 require("@babel/core").transformSync("code", {
     plugins: ["@babel/plugin-transform-classes"],
 });
+require("babel-polyfill");
 
 
 module.exports = {
     mode: 'development',
-    entry: {
-        index: './src/js/index.js',
-    },
+    entry:
+        ["babel-polyfill", "./src/js/index.js",
+           ],
     devServer: {
         contentBase: './dist',
+
+        proxy: {
+            '/api/v2/cards':{secure: false,target:'https://ajax.test-danit.com'},
+
+        },
     },
+
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Development',

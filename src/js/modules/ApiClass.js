@@ -1,4 +1,4 @@
-export default class Fetch {
+export default class API {
     static URL = "https://ajax.test-danit.com/api/v2/cards";
 
     static getHeaders() {
@@ -8,16 +8,25 @@ export default class Fetch {
         }
     }
 
-    static async login(userData) {
-        const res = await fetch(`${API.URL}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        }).then(res => res.text());
+    static async login(data) {
+        try {
+            return fetch(`${API.URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then( (res) => {
+                    return res.text()//получаю промис
+                })
+                .then( (res) => {//получаю уже норм знач
+                    return res
+                })
+        } catch (error) {
+            return error
+        }
 
-        return res.text();
     };
 
     static saveToken(tokenFromResponse) {

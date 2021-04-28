@@ -14,12 +14,14 @@
     "@babel/core": "^7.13.16",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
     "@babel/plugin-transform-classes": "^7.13.0",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-stage-2": "^7.8.3",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.4",
@@ -30,5 +32,6 @@
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "proxy": "https://ajax.test-danit.com/api/v2/cards"
 }
