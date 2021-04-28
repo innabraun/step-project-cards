@@ -1,3 +1,4 @@
+
 export default class API {
     static URL = "https://ajax.test-danit.com/api/v2/cards";
 
@@ -41,35 +42,41 @@ export default class API {
         });
 
         return res.json();
+
+
+    }
+    static async putRequest (object, cardId){
+        const response = await fetch(`https://ajax.test-danit.com/api/cards/${cardId}`, {
+            method: 'PUT',
+            body: JSON.stringify(object),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        return await response.json();
     }
 
-    static async getAllCards () {
-        const res = await fetch(`${API.URL}/cards`, {
-            method: 'GET',
-            headers: API.getHeaders(),
-        });
-
-        return res.json();
-    }
-
-    static async deleteCard (id) {
-        const res = await fetch(`${API.URL}/cards/${id}`, {
+    static async deleteRequest(id) {
+        const response = await fetch(`https://ajax.test-danit.com/api/cards/${id}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${API.token}`
-            },
-        });
-
-        return res.json();
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        return true
     }
 
-    static async editCard (newCard) {
-        const res = await fetch(`${API.URL}/cards/${id}`, {
-            method: 'PUT',
-            headers: API.getHeaders(),
-            body: JSON.stringify(newCard)
-        });
+    static async getRequest() {
 
-        return res.json();
+        const response = await fetch(`https://ajax.test-danit.com/api/cards`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        return await response.json();
     }
 }
