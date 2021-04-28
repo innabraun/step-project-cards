@@ -12,8 +12,47 @@
 
 <header class="header"></header>
 
+<div class="cards-container">
+    <div class="modal fade" id="createVisitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="formContent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="close-form-btn" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="visitForm">
+                        <div class="form-group">
+                            <label for="typeOfDoctor">Choose a doctor</label>
+                            <select class="form-control visit-form-input" id="typeOfDoctor" name="doctor">
+                                <option value="chose">Please, choose a doctor</option>
+                                <option value="cardiologist">Cardiologist</option>
+                                <option value="therapist">Therapist</option>
+                                <option value="dentist">Dentist</option>
+                            </select>
+                        </div>
+                    </form>
+                    <form id="wrapper">
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-form-btn" data-dismiss="modal">Close
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="createVisitBtn">Create
+                        Visit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="root"></div>
 
- <script src="../js/index.js"> </script>
+ <script type="module" src="../js/index.js"> </script>
 </body>
 </html>
