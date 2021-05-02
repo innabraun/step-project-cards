@@ -3,17 +3,17 @@
 import "../style.css"
 import {Header} from "./modules/Header";
 import ClassForm from "./modules/loginDialog/ClassForm";
+import {Border} from "./modules/mainBlock/Border.js";
+import {isTokenInLocalStorage} from "./modules/helper";
 
-const header= new Header().render()
-document.querySelector(".header").append(header)
+const isRenderWithToken=()=>{
+    const isToken=isTokenInLocalStorage()
+    const header= new Header(isToken).render()
+    document.querySelector(".header").append(header)
+}
+isRenderWithToken();
 
 
-window.addEventListener("DOMContentLoaded",()=>{
-    document.querySelector(".button__item").addEventListener("click",()=>{
-        const classForm=new ClassForm().render();
-        document.querySelector(".root").append(classForm);
-    });
-});
-
+document.querySelector(".main__border").insertAdjacentHTML("afterend",new Border().render())
 
 

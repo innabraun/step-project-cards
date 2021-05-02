@@ -1,6 +1,6 @@
-import {Fetch} from "../ClassFetch.js";
+import API from "../ApiClass";
 
-export class CreateVisit extends Fetch {
+export class CreateVisit extends API {
     constructor() {
         super();
         this.url = 'https://ajax.test-danit.com/api/cards';

@@ -101,3 +101,77 @@ width: 200px;
     background: #07575B;
 }
 
+.no__cards-item{
+    display: flex;
+    position: absolute;
+    font-family: Montserrat,sans-serif;
+    font-size: 20px;
+    top: 260px;
+    left: 29%;
+
+
+}
+
+
+.message__text{
+    font-family: Montserrat,sans-serif;
+    color: firebrick;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.border__item{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.main__border{
+    padding-top: 80px;
+}
+
+.border__img{
+
+    width: 800px;
+
+}
+
+
+
+footer {
+    background: #003B46;
+    color: white;
+    height: 80px;
+    grid-area: footer;
+    grid-column: line2 / line3;
+    grid-row: row3 / row4;
+    margin-top: 50px;
+}
+
+.text_footer{
+    font-family: "Montserrat",SansSerif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+   padding-top: 30px;
+}
+
+
+#Footer{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 80px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+
+.loader{
+    display: none;
+    margin: 0;
+    padding:0px;
+}
+
