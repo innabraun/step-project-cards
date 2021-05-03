@@ -5,7 +5,7 @@ export default class API {
     static getHeaders() {
         return {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API.token}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
     }
 
@@ -25,7 +25,7 @@ export default class API {
                     return res
                 })
         } catch (error) {
-            return error
+
         }
 
     };
@@ -77,6 +77,6 @@ export default class API {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
-        return await response.json();
+        return  response.json().then(res=>res);
     }
 }
