@@ -205,3 +205,43 @@ footer {
 .btn:hover{
     background-color: #66A5AD;
 }
+
+
+/*"корявые стили просто для наглядности"*/
+
+.display-none {
+    display: none;
+}
+#no-cards {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+}
+.main {
+    margin: 0 auto;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+}
+
+.select-status, .select-urgency {
+    display: contents;
+}
+
+.select {
+    width: 180px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container {
+    border: 1px solid blue;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    min-width: 200px;
+}
