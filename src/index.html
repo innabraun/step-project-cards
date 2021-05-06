@@ -51,6 +51,28 @@
     </div>
 </div>
 
+<div class="all-cards">
+    <div class="filter">
+        <div class="search">
+            <input type="text" id="search">
+        </div>
+        <div class="select-status"><select class="select" name="status" id="status">
+            <option value="All">Choose status</option>
+            <option value="Open">Open</option>
+            <option value="Done">Done</option>
+        </select></div>
+        <div class="select-urgency"><select class="select" name="urgency" id="urgency">
+            <option value="All">Choose urgency</option>
+            <option value="High">High</option>
+            <option value="Normal">Normal</option>
+            <option value="Low">Low</option>
+        </select></div>
+        <button type="submit" id="filter-id" class="btn-filter">Search</button>
+    </div>
+    <div id="no-cards" class="display-none"><p>No cards</p></div>
+    <div id="all-cards" class="cards"></div>
+</div>
+
 <footer class="footer">
     <p class="text_footer"> All Rights Reserved © 2021</p>
 </footer>
