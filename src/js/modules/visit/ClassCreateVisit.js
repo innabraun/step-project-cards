@@ -1,4 +1,4 @@
-import API from "../ApiClass";
+import API from "../ApiClass.js";
 
 export class CreateVisit extends API {
     constructor() {
