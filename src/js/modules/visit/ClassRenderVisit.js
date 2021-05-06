@@ -10,7 +10,7 @@ export class RenderVisit {
     }
 
     render(element) {
-        let inputField = `${new Visit().renderInput()} ${new Visit().renderSelect()}`;
+        let inputField = `${new Visit().renderInputs()} ${new Visit().renderSelect()}`;
 
         if (this.doctor === 'cardiologist') {
             new VisitCardiologist().inputs.forEach(item => {
