@@ -97,38 +97,7 @@ export default class Form extends Component {
         this.formWrapper.addEventListener('click', e => {
             if (e.target.classList.contains('form__wrapper')) {
                 this.formWrapper.remove();
-                const modalForm = document.getElementById('formContent');
-                modalForm.addEventListener('click', createVisitOnClick);
 
-                async function createVisitOnClick (event) {
-                    const {RenderVisit} = await import('../visit/ClassRenderVisit.js');
-                    const {CreateVisit} = await import('../visit/ClassCreateVisit.js');
-                    const {target: doctor} = event;
-                    const wrapper = document.getElementById('wrapper');
-                    const modal = document.getElementById('createVisitModal');
-
-                    if (doctor.value === 'dentist' || doctor.value === 'therapist' || doctor.value === 'cardiologist') {
-                        new RenderVisit(doctor.value).render(wrapper);
-                    } else if (!modal.classList.contains('show')) {
-                        new CreateVisit().clearInputs('wrapper');
-                    }
-                    document.getElementById('noItemsAdded').classList.add('disable');
-                }
-                const submitVisitFormBtn = this.createFormButton();
-
-                submitVisitFormBtn.addEventListener('click', async function (e) {
-                    let card = await visitFormOnSubmit();
-                })
-
-
-                async function visitFormOnSubmit() {
-                    const {CreateVisit} = await import('../visit/ClassCreateVisit.js');
-                    const card = await new CreateVisit().getObj('visit-form-input');
-                    const response = await new CreateVisit().formSubmit(card);
-
-                    console.log('Response --->', response);
-                    return response;
-                }
             }
         });
 
