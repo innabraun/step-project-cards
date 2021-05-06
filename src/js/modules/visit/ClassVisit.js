@@ -2,31 +2,35 @@ import {Select} from "./ClassVisitSelect.js";
 import {Input} from "./ClassVisitInput.js";
 
 export class Visit {
-
     constructor() {
     }
 
-    inputs = [
+    fields = [
         {
             purpose: 'Purpose of visit',
-            name:'Full name',
-            info: 'Visit info'
+            name:'Name and Surname',
+            details: 'Visit details'
         }
     ];
 
-    render (element) {
+    renderInputs(element) {
         let inputField = ''
 
-        this.inputs.forEach(item => {
+        this.fields.forEach(item => {
             inputField += new Input(item).render();
         })
-
         return inputField;
     };
 
     renderSelect(element) {
         return new Select().render();
 
+    };
+
+    log() {
+        this.fields.forEach(item => {
+            const newInput = new Input(item).log();
+        })
     };
 }
 

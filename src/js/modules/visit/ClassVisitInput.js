@@ -22,7 +22,7 @@ export class Input {
     }
 
     log() {
-        this.inputs.forEach(item => {
+        this.fields.forEach(item => {
             const newInput = new Input(item).log();
         })
     };

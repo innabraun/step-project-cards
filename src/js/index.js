@@ -6,6 +6,7 @@ import ClassForm from "./modules/loginDialog/ClassForm";
 import {Border} from "./modules/mainBlock/Border.js";
 import {isTokenInLocalStorage} from "./modules/helper";
 
+
 const isRenderWithToken=()=>{
     const isToken=isTokenInLocalStorage()
     const header= new Header(isToken).render()

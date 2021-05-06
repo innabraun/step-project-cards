@@ -2,6 +2,17 @@
 export default class API {
     static URL = "https://ajax.test-danit.com/api/v2/cards";
 
+    static async postRequest (object, url, token) {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(object),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return response.json();
+    }
     static getHeaders() {
         return {
             'Content-Type': 'application/json',
