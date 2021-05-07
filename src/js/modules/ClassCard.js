@@ -85,7 +85,7 @@ export class Cards {
     async btnDelete(){
         const id = this.id;
         try {
-            // await Fetch.deleteCard(id);
+            // await API.deleteCard(id);
             document.querySelector(`[data-id='${id}']`).remove()
         } catch(err) {
             alert(err);
