@@ -3,6 +3,7 @@ import API from "../ApiClass.js";
 import Input from "./ClassInput.js"
 import doc2 from "../../../img/male-african-doctor-in-the-medical-interior-of-the-hospital-open-palm-copy-space-cartoon-person_187882-1244.jpg"
 import gif from "../../../img/1489.gif"
+import {Cards} from "../ClassCard";
 
 
 export default class Form extends Component {
@@ -39,20 +40,22 @@ export default class Form extends Component {
             localStorage.setItem('token', getData);
             document.querySelector(".border__img").src=doc2
             document.querySelector(".button__item").textContent="CREATE VISIT"
-
+            document.querySelector(".icon__out").style.display="block"
 
             setTimeout(()=>{
                 document.querySelector(".form__wrapper").remove()
-                document.querySelector(".loader").style.display="none"
-            },2500)
 
+            },2500)
+            new Cards().addAllCards()
             const cards = await API.getRequest()
             if (cards.length===0){
-                //to do myzik
+
                 document.querySelector(".no__cards-item").textContent="No items have been added"
                 return
             }
-            // TODO save token with API.saveToken()
+
+
+
         } catch(e){
             console.log(e)
         }
