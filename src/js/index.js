@@ -20,4 +20,3 @@ document.querySelector(".main__border").insertAdjacentHTML("afterend",new Border
 
 
 
-
