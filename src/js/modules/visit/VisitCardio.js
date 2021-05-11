@@ -5,10 +5,10 @@ export class VisitCardiologist extends Visit {
         super();
         this.inputs = [
             {
-                pressure: 'blood pressure',
-                index: 'weight index',
-                illnesses: 'previous illnesses',
-                age: 'age'
+                pressure: 'Blood pressure',
+                index: 'Weight index',
+                illnesses: 'Previous illnesses',
+                age: 'Age'
             }
         ];
     }
