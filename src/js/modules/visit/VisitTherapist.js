@@ -5,7 +5,7 @@ export class VisitTherapist extends Visit {
         super();
         this.inputs = [
             {
-                age: 'age'
+                age: 'Age'
             }
         ];
     }

@@ -1,4 +1,5 @@
-import API from "../modules/ApiClass";
+import API from "./ApiClass.js";
+
 
 export class Cards {
     constructor(doctor, id, status, urgency, purpose, name, info, pressure, index, illnesses, age, lastVisit, parentElement) {
@@ -30,16 +31,23 @@ export class Cards {
         }
     }
 
+
     addAllCards = async () => {
+
         const data = await API.getRequest();
+
+  
+
         console.log(data)
 
         if (data.length === 0 || data.length === undefined) {
             document.querySelector('#no-cards').classList.remove('display-none')
         }else {
             data.forEach(visit => {
+
                 let item = new Cards(visit.doctor, visit.id, visit.status, visit.urgency, visit.purpose, visit.name, visit.info, visit.pressure, visit.index, visit.illnesses, visit.age, visit.lastVisit, document.querySelector('#all-cards'));
                 // console.log(item)
+
                 item.render();
             })
         }
@@ -65,11 +73,10 @@ export class Cards {
         const illnesses = document.createElement('p')
         const age = document.createElement('p')
         const lastVisit = document.createElement('p')
-
         const btnEdit = document.createElement('button')
         const btnDelete = document.createElement('button')
-        btnEdit.textContent = 'Редактировать'
-        btnDelete.textContent = 'Удалить'
+        btnEdit.textContent = 'EDIT'
+        btnDelete.textContent = 'DELETE'
         pressure.textContent = this.pressure;
         index.textContent = this.index;
         illnesses.textContent = this.illnesses;
@@ -101,7 +108,7 @@ export class Cards {
         purpose.textContent = this.purpose;
         name.textContent = this.name;
         info.textContent = this.info;
-        btn.textContent = 'Показать больше';
+        btn.textContent = 'SHOW MORE';
         container.setAttribute('data-id', `${this.id}`);
 
         btn.addEventListener('click', ()=> this.handleClick());

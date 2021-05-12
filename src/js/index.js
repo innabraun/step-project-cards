@@ -9,6 +9,7 @@ import {Cards} from "./modules/ClassCard";
 import API from "./modules/ApiClass";
 
 
+
 const isRenderWithToken=()=>{
     const isToken=isTokenInLocalStorage()
     const header= new Header(isToken).render()
@@ -19,8 +20,9 @@ isRenderWithToken();
 
 // document.querySelector(".main__border").insertAdjacentHTML("afterend",new Border().render())
 
+//  tarasAddBagFilter
+// (async () => {
+//     await new Cards().addAllCards();
+// })();
 
-(async () => {
-    await new Cards().addAllCards();
-})();
 
