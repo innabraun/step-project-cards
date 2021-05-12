@@ -1,5 +1,6 @@
 import API from "./ApiClass.js";
 
+
 export class Cards {
     constructor(doctor, id, status, urgency, purpose, name, info, pressure, index, illnesses, age, lastVisit, parentElement) {
         this.doctor = doctor;
@@ -32,14 +33,21 @@ export class Cards {
 
 
     addAllCards = async () => {
-        const data = await API.getRequest()
+
+        const data = await API.getRequest();
+
+  
+
         console.log(data)
 
         if (data.length === 0 || data.length === undefined) {
             document.querySelector('#no-cards').classList.remove('display-none')
         }else {
             data.forEach(visit => {
-                const item = new Cards(visit.doctor, visit.id, visit.status, visit.urgency, visit.purpose, visit.name, visit.info, visit.pressure, visit.index, visit.illnesses, visit.age, visit.lastVisit, document.querySelector('#all-cards'));
+
+                let item = new Cards(visit.doctor, visit.id, visit.status, visit.urgency, visit.purpose, visit.name, visit.info, visit.pressure, visit.index, visit.illnesses, visit.age, visit.lastVisit, document.querySelector('#all-cards'));
+                // console.log(item)
+
                 item.render();
             })
         }

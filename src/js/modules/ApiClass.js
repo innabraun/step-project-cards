@@ -81,7 +81,7 @@ export default class API {
 
     static async getRequest() {
 
-        const response = await fetch(`https://ajax.test-danit.com/api/cards`, {
+        const response = await fetch(`https://ajax.test-danit.com/api/v2/cards`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -89,5 +89,6 @@ export default class API {
             }
         })
         return  response.json().then(res=>res);
+
     }
 }

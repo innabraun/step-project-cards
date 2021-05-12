@@ -5,6 +5,8 @@ import {Header} from "./modules/Header";
 import ClassForm from "./modules/loginDialog/ClassForm";
 import {Border} from "./modules/mainBlock/Border.js";
 import {isTokenInLocalStorage} from "./modules/helper";
+import {Cards} from "./modules/ClassCard";
+import API from "./modules/ApiClass";
 
 
 
@@ -16,7 +18,11 @@ const isRenderWithToken=()=>{
 isRenderWithToken();
 
 
-document.querySelector(".main__border").insertAdjacentHTML("afterend",new Border().render())
+// document.querySelector(".main__border").insertAdjacentHTML("afterend",new Border().render())
 
+//  tarasAddBagFilter
+// (async () => {
+//     await new Cards().addAllCards();
+// })();
 
 
