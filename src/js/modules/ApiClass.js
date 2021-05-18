@@ -69,7 +69,7 @@ export default class API {
     }
 
     static async deleteRequest(id) {
-        const response = await fetch(`https://ajax.test-danit.com/api/cards/${id}`, {
+        const response = await fetch(`${API.URL}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export default class API {
 
     static async getRequest() {
 
-        const response = await fetch(`https://ajax.test-danit.com/api/v2/cards`, {
+        const response = await fetch(`${API.URL}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

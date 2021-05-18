@@ -14,10 +14,67 @@
 <div class="root"></div>
 
 <div class="main">
+<div class="main__border">
     <div class="all-cards">
         <div class="filter">
-            <div class="search">
-                <input type="text" id="search">
+            <div class="search filter-item">
+                <input type="text" placeholder="Enter text to search" id="search">
+            </div>
+<!--            <div class="select-status filter-item"><select class="select" name="status" id="status">-->
+<!--                <option value="All">Choose status</option>-->
+<!--                <option value="Open">Open</option>-->
+<!--                <option value="Done">Done</option>-->
+<!--            </select></div>-->
+<!--            <div class="select-urgency filter-item"><select class="select" name="urgency" id="urgency">-->
+<!--                <option value="All">Choose urgency</option>-->
+<!--                <option value="High">High</option>-->
+<!--                <option value="Normal">Normal</option>-->
+<!--                <option value="Low">Low</option>-->
+<!--            </select></div>-->
+<!--            <button type="submit" id="filter-id" class="btn-filter button-filter__item">Search</button>-->
+<!--        </div>-->
+<!--        <div id="no-cards" class="display-none"><p>No cards</p></div>-->
+<!--        <div id="all-cards" class="cards"></div>-->
+    </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="cards-container">
+    <div class="modal fade" id="createVisitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="formContent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please enter your info</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="visitForm">
+
+
+                        <div class="form-group">
+                            <label for="typeOfDoctor">Choose a doctor</label>
+                            <select class="form-control visit-form-input" id="typeOfDoctor" name="doctor">
+                                <option value="chose">Please, choose a doctor</option>
+                                <option value="cardiologist">Cardiologist</option>
+                                <option value="therapist">Therapist</option>
+                                <option value="dentist">Dentist</option>
+                            </select>
+                        </div>
+                    </form>
+                    <form id="wrapper">
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-form-btn" data-dismiss="modal">Close
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="createVisitBtn">Create
+                        Visit
+                    </button>
+                </div>
             </div>
             <div class="select-status"><select class="select" name="status" id="status">
                 <option value="All">Choose status</option>
@@ -35,50 +92,59 @@
         <div id="no-cards" class="display-none"><p>No cards</p></div>
         <div id="all-cards" class="cards"></div>
     </div>
+
     <div class="main__border">
         <div class="border__item">
         
         </div>
     </div>
-    
-    <div class="cards-container">
-        <div class="modal fade" id="createVisitModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content" id="formContent">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Please enter your info</h5>
-                    </div>
-                    <div class="modal-body">
-                        <form id="visitForm">
-                            <div class="form-group">
-                                <label for="typeOfDoctor">Choose a doctor</label>
-                                <select class="form-control visit-form-input" id="typeOfDoctor" name="doctor">
-                                    <option value="chose">Please, choose a doctor</option>
-                                    <option value="cardiologist">Cardiologist</option>
-                                    <option value="therapist">Therapist</option>
-                                    <option value="dentist">Dentist</option>
-                                </select>
-                            </div>
-                        </form>
-                        <form id="wrapper">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="modalVisitCloseButton" class="btn btn-secondary close-form-btn" data-dismiss="modal">Close
-                        </button>
-                        <button type="reset" class="btn btn-primary" id="createVisitBtn">Create
-                            Visit
-                        </button>
-                        <button type="button" class="btn btn-primary" id="chooseDoctorBtn">Choose doctor
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
+
+
+
+<!--    <div class="cards-container">-->
+<!--        <div class="modal fade" id="createVisitModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+<!--             aria-hidden="true">-->
+<!--            <div class="modal-dialog">-->
+<!--                <div class="modal-content" id="formContent">-->
+<!--                    <div class="modal-header">-->
+<!--                        <h5 class="modal-title" id="exampleModalLabel">Please enter your info</h5>-->
+<!--                    </div>-->
+<!--                    <div class="modal-body">-->
+<!--                        <form id="visitForm">-->
+
+<!--                            <div class="form-group">-->
+<!--                                <label for="typeOfDoctor">Choose a doctor</label>-->
+<!--                                <select class="form-control visit-form-input" id="typeOfDoctor" name="doctor">-->
+<!--                                    <option value="chose">Please, choose a doctor</option>-->
+<!--                                    <option value="cardiologist">Cardiologist</option>-->
+<!--                                    <option value="therapist">Therapist</option>-->
+<!--                                    <option value="dentist">Dentist</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                        <form id="wrapper">-->
+<!--                        </form>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" id="modalVisitCloseButton" class="btn btn-secondary close-form-btn" data-dismiss="modal">Close-->
+<!--                        </button>-->
+<!--                        <button type="reset" class="btn btn-primary" id="createVisitBtn">Create-->
+<!--                            Visit-->
+<!--                        </button>-->
+<!--                        <button type="button" class="btn btn-primary" id="chooseDoctorBtn">Choose doctor-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    -->
+<!--</div>-->
 </div>
+
+
 
 <footer class="footer">
     <p class="text_footer"> All Rights Reserved © 2021</p>

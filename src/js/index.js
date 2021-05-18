@@ -1,7 +1,9 @@
+
 import '../style.css';
 import { Header } from './modules/Header';
 import { Border } from './modules/mainBlock/Border.js';
 import { isTokenInLocalStorage } from './modules/helper';
+import {Filter} from "./modules/ClassCardFilter";
 
 const isRenderWithToken = () => {
   const isToken = isTokenInLocalStorage();
@@ -15,3 +17,7 @@ export async function getCardsBeforeBorder() {
   await new Border().render();
 }
 getCardsBeforeBorder();
+
+
+new Filter().onClickFilter();
+
