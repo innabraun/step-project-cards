@@ -42,6 +42,7 @@ export class Header extends Form {
     await getCardsBeforeBorder();
     document.getElementById('chooseDoctorBtn').style.display = 'block';
     document.getElementById('createVisitBtn').style.display = 'none';
+    document.querySelector("footer").style.position="fixed"
   };
 
   chooseDoctorOnClick = () => {
@@ -105,10 +106,12 @@ export class Header extends Form {
       document.querySelector('.border__cards').innerHTML = '';
     }
     document.querySelector('.no__cards-item').textContent = '';
+    document.querySelector("footer").style.position="";
   };
 
+
   render() {
-    const { parent, image, slogan, buttonWrapper, button, icon, inputsFrom } =
+    const { parent, image, slogan, buttonWrapper, button, icon } =
       this.elements;
     button.addEventListener('click', this.setModalDialog);
     icon.addEventListener('click', this.setLogOut);

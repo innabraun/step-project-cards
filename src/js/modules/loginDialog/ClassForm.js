@@ -37,6 +37,7 @@ export default class Form extends Component {
       document.querySelector('.button__item').textContent = 'CREATE VISIT';
       document.querySelector('.icon__out').style.display = 'block';
 
+
       setTimeout(() => {
         document.querySelector('.form__wrapper').remove();
       }, 2500);
@@ -50,6 +51,7 @@ export default class Form extends Component {
       if (cards.length) {
         document.querySelector('.border__img').src = '';
         await getCardsBeforeBorder();
+        document.querySelector("footer").style.position="fixed"
       }
     } catch (e) {
       console.log(e);

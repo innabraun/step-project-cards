@@ -1,13 +1,8 @@
-<<<<<<< HEAD
+
 import API from './ApiClass.js';
 import { Cards } from './ClassCard.js';
-=======
->>>>>>> 9398093372cea7cd66b59fffdedd23f9cea450dc
+const btnFilter = document.getElementById('filter-id');
 
-import API from "../modules/ApiClass";
-import {Cards} from "./ClassCard";
-
-<<<<<<< HEAD
 btnFilter.addEventListener('click', () => {
   const status = getValue('status');
   const urgency = getValue('urgency');
@@ -86,7 +81,7 @@ function getValue(select) {
   const e = document.getElementById(select);
   return e.value;
 }
-=======
+
 export class Filter {
     onClickFilter() {
         const btnFilter = document.getElementById('filter-id');
@@ -157,7 +152,7 @@ export class Filter {
 
 }
 
-// const btnFilter = document.getElementById('filter-id');
+//
 //
 // btnFilter.addEventListener('click', () => {
 //     const status = getValue('status')
@@ -229,4 +224,3 @@ export class Filter {
 //     const e = document.getElementById(select);
 //     return e.value;
 // }
->>>>>>> 9398093372cea7cd66b59fffdedd23f9cea450dc
