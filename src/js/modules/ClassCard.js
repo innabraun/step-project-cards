@@ -1,4 +1,5 @@
-import API from "../modules/ApiClass";
+import API from "./ApiClass.js";
+
 
 export class Cards {
     constructor(doctor, id, status, urgency, purpose, name, info, pressure, index, illnesses, age, lastVisit, parentElement) {
@@ -30,16 +31,23 @@ export class Cards {
         }
     }
 
+
     addAllCards = async () => {
+
         const data = await API.getRequest();
+
+  
+
         console.log(data)
 
         if (data.length === 0 || data.length === undefined) {
             document.querySelector('#no-cards').classList.remove('display-none')
         }else {
             data.forEach(visit => {
+
                 let item = new Cards(visit.doctor, visit.id, visit.status, visit.urgency, visit.purpose, visit.name, visit.info, visit.pressure, visit.index, visit.illnesses, visit.age, visit.lastVisit, document.querySelector('#all-cards'));
                 // console.log(item)
+
                 item.render();
             })
         }
@@ -65,9 +73,9 @@ export class Cards {
         const illnesses = document.createElement('p')
         const age = document.createElement('p')
         const lastVisit = document.createElement('p')
-
         const btnEdit = document.createElement('button')
         const btnDelete = document.createElement('button')
+
         btnEdit.textContent = 'Edit'
         btnEdit.classList.add('button-filter__item')
 
@@ -88,6 +96,7 @@ export class Cards {
         if(this.lastVisit){
             lastVisit.textContent = 'Last visit: ' +  this.lastVisit;
         }
+
         addInfo.append(pressure, index, illnesses, age, lastVisit, btnEdit, btnDelete);
         container.append(addInfo);
         btnDelete.addEventListener('click', ()=> this.btnDelete());
@@ -108,6 +117,7 @@ export class Cards {
 
     render() {
         const {parent, status, urgency, container, doctor, purpose, name, info, btn} = this.elements;
+
         status.textContent = 'Status: ' + this.status;
         doctor.textContent = 'Doctor: ' + this.doctor;
         urgency.textContent = 'Urgency: ' + this.urgency;
@@ -117,6 +127,7 @@ export class Cards {
         btn.textContent = 'Show more';
         btn.classList.add('button-filter__item')
         btn.classList.add('button-show__item')
+
         container.setAttribute('data-id', `${this.id}`);
 
         btn.addEventListener('click', ()=> this.handleClick());

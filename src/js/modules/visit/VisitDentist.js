@@ -5,7 +5,7 @@ export class VisitDentist extends Visit {
     super();
     this.inputs = [
       {
-        lastVisit: 'date of last visit',
+        lastVisit: 'Date of last visit',
       },
     ];
   }

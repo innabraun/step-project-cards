@@ -17,7 +17,7 @@ export class Header extends Form {
       slogan: this.createElement('div', { className: 'slogan' }),
       buttonWrapper: this.createElement('div', { className: 'button' }),
       button: this.createElement('button', { className: 'button__item' }),
-      icon: this.createElement('img', { className: 'icon__out', src: logOut }),
+      icon: this.createElement('img', { className: this.isToken?"exit__btn":'icon__out exit__btn',  src: logOut }),
     };
   }
 
@@ -71,6 +71,11 @@ export class Header extends Form {
     const image = document.querySelector('.border__img');
     image.src = doc;
     document.querySelector('.no__cards-item').textContent = '';
+    document.querySelector(".exit__btn").classList.add("icon__out")
+    document.querySelector(".icon__out").style.display="none";
+
+
+
   };
 
   render() {
@@ -89,6 +94,10 @@ export class Header extends Form {
     slogan.textContent = `Weill Cornell Internal Medicine Associates by st.Maria`;
     button.textContent = !this.isToken ? `SIGN IN` : 'CREATE VISIT';
     parent.append(image, slogan, buttonWrapper);
+    // if (isTokenInLocalStorage()){
+    //   document.querySelector(".icon__out").style.display="block";
+    //
+    // }
     return parent;
   }
 }

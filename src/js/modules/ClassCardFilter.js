@@ -1,3 +1,4 @@
+
 import API from "../modules/ApiClass";
 import {Cards} from "./ClassCard";
 
@@ -32,6 +33,7 @@ export class Filter {
             }
         })
     }
+
 
     filterSelectStatus(item, status){
         let filterStatus = false
