@@ -11,7 +11,6 @@ export class RenderVisit {
 
   render(element) {
     let inputField = `${new Visit().renderInputs()} ${new Visit().renderSelect()}`;
-    debugger;
     if (this.doctor === 'cardiologist') {
       new VisitCardiologist().inputs.forEach((item) => {
         inputField += new Input(item).render();
