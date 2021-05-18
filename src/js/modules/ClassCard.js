@@ -75,13 +75,28 @@ export class Cards {
         const lastVisit = document.createElement('p')
         const btnEdit = document.createElement('button')
         const btnDelete = document.createElement('button')
-        btnEdit.textContent = 'EDIT'
-        btnDelete.textContent = 'DELETE'
-        pressure.textContent = this.pressure;
-        index.textContent = this.index;
-        illnesses.textContent = this.illnesses;
-        age.textContent = this.age;
-        lastVisit.textContent = this.lastVisit;
+
+        btnEdit.textContent = 'Edit'
+        btnEdit.classList.add('button-filter__item')
+
+        btnDelete.textContent = 'Delete'
+        btnDelete.classList.add('button-filter__item')
+        if(this.pressure){
+            pressure.textContent ='Pressure: ' +  this.pressure;
+        }
+        if(this.index){
+            index.textContent = 'Index: ' +  this.index;
+        }
+        if(this.illnesses){
+            illnesses.textContent = 'Illnesses: ' +  this.illnesses;
+        }
+        if(this.age){
+            age.textContent = 'Age: ' +  this.age;
+        }
+        if(this.lastVisit){
+            lastVisit.textContent = 'Last visit: ' +  this.lastVisit;
+        }
+
         addInfo.append(pressure, index, illnesses, age, lastVisit, btnEdit, btnDelete);
         container.append(addInfo);
         btnDelete.addEventListener('click', ()=> this.btnDelete());
@@ -92,7 +107,7 @@ export class Cards {
     async btnDelete(){
         const id = this.id;
         try {
-            // await API.deleteCard(id);
+            await API.deleteRequest(id);
             document.querySelector(`[data-id='${id}']`).remove()
         } catch(err) {
             alert(err);
@@ -102,13 +117,17 @@ export class Cards {
 
     render() {
         const {parent, status, urgency, container, doctor, purpose, name, info, btn} = this.elements;
-        status.textContent = this.status;
-        doctor.textContent = this.doctor;
-        urgency.textContent = this.urgency;
-        purpose.textContent = this.purpose;
-        name.textContent = this.name;
-        info.textContent = this.info;
-        btn.textContent = 'SHOW MORE';
+
+        status.textContent = 'Status: ' + this.status;
+        doctor.textContent = 'Doctor: ' + this.doctor;
+        urgency.textContent = 'Urgency: ' + this.urgency;
+        purpose.textContent = 'Purpose: ' + this.purpose;
+        name.textContent = 'Name: ' + this.name;
+        info.textContent = 'Info: ' + this.info;
+        btn.textContent = 'Show more';
+        btn.classList.add('button-filter__item')
+        btn.classList.add('button-show__item')
+
         container.setAttribute('data-id', `${this.id}`);
 
         btn.addEventListener('click', ()=> this.handleClick());
