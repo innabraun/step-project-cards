@@ -6,6 +6,7 @@ import ClassForm from "./modules/loginDialog/ClassForm";
 import {Border} from "./modules/mainBlock/Border.js";
 import {isTokenInLocalStorage} from "./modules/helper";
 import {Cards} from "./modules/ClassCard";
+import {Filter} from "./modules/ClassCardFilter";
 import API from "./modules/ApiClass";
 
 
@@ -24,3 +25,4 @@ isRenderWithToken();
     await new Cards().addAllCards();
 })();
 
+new Filter().onClickFilter();
