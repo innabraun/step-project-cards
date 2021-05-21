@@ -27,9 +27,9 @@
             </select></div>
             <div class="select-urgency filter-item"><select class="select" name="urgency" id="urgency">
                 <option value="All">Choose urgency</option>
-                <option value="High">High</option>
-                <option value="Normal">Normal</option>
-                <option value="Low">Low</option>
+                <option value="normal">Normal</option>
+                <option value="priority">Priority</option>
+                <option value="urgent">Urgent</option>
             </select></div>
             <button type="submit" id="filter-id" class="btn-filter button-filter__item">Search</button>
         </div>
@@ -71,6 +71,9 @@
                         <button type="button" id="modalVisitCloseButton" class="btn btn-secondary close-form-btn" data-dismiss="modal">Close
                         </button>
                         <button type="reset" class="btn btn-primary" id="createVisitBtn">Create
+                            Visit
+                        </button>
+                        <button type="reset" class="btn btn-primary" id="updateVisitBtn">Update
                             Visit
                         </button>
                         <button type="button" class="btn btn-primary" id="chooseDoctorBtn">Choose doctor

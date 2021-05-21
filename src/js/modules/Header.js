@@ -42,6 +42,7 @@ export class Header extends Form {
     await getCardsBeforeBorder();
     document.getElementById('chooseDoctorBtn').style.display = 'block';
     document.getElementById('createVisitBtn').style.display = 'none';
+    document.getElementById('updateVisitBtn').style.display = 'none';
     document.querySelector("footer").style.position="fixed"
   };
 
@@ -80,6 +81,10 @@ export class Header extends Form {
       const classForm = new ClassForm().render();
       document.querySelector('.root').append(classForm);
     } else {
+      document.querySelector('#wrapper').style.display = 'none';
+      document.querySelector('#chooseDoctorBtn').style.display = 'block';
+      document.querySelector('#typeOfDoctor').value = 'chose';
+      document.querySelector('#updateVisitBtn').style.display = 'none';
       const modalForm = document.getElementById('createVisitModal');
       const close = document.getElementById('modalVisitCloseButton');
       const chooseDoctorBtn = document.getElementById('chooseDoctorBtn');
