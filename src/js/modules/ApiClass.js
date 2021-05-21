@@ -57,7 +57,7 @@ export default class API {
 
     }
     static async putRequest (object, cardId){
-        const response = await fetch(`https://ajax.test-danit.com/api/cards/${cardId}`, {
+        const response = await fetch(`${API.URL}/${cardId}`, {
             method: 'PUT',
             body: JSON.stringify(object),
             headers: {

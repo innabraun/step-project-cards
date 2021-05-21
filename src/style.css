@@ -46,7 +46,7 @@
   width: 150px;
   border-radius: 50px;
 }
-#createVisitBtn {
+#createVisitBtn, #updateVisitBtn {
   display: none;
 }
 .button__item:hover {

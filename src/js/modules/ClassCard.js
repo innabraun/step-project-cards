@@ -1,14 +1,24 @@
 import API from './ApiClass.js';
+import {Header} from "./Header";
+import logo from '../../img/pngwing.com.png';
+import Form from './loginDialog/ClassForm';
+import ClassForm from './loginDialog/ClassForm';
+import { isTokenInLocalStorage } from './helper.js';
+import logOut from '../../img/icons8-exit-100.png';
+import doc from '../../img/white-man-doctor-in-the-medical-interior-of-the-hospital-holds-a-laptop-cartoon-person-3d-rendering_187882-1432.jpg';
+import { RenderVisit } from './visit/ClassRenderVisit.js';
+import { CreateVisit } from './visit/ClassCreateVisit.js';
+import { getCardsBeforeBorder } from '..';
 
 export class Cards {
   constructor({
                 doctor,
                 id,
-                status,
+                // status,
                 urgency,
                 purpose,
                 name,
-                info,
+                details,
                 pressure,
                 index,
                 illnesses,
@@ -19,9 +29,9 @@ export class Cards {
     this.id = id;
     this.purpose = purpose;
     this.name = name;
-    this.info = info;
+    this.details = details;
 
-    this.status = status;
+    // this.status = status;
     this.urgency = urgency;
     this.pressure = pressure;
     this.index = index;
@@ -33,11 +43,11 @@ export class Cards {
       parent: document.createElement('div'),
       container: document.createElement('div'),
       doctor: document.createElement('p'),
-      status: document.createElement('p'),
+      // status: document.createElement('p'),
       urgency: document.createElement('p'),
       purpose: document.createElement('p'),
       name: document.createElement('p'),
-      info: document.createElement('p'),
+      details: document.createElement('p'),
       btn: document.createElement('button'),
       addInfo: document.createElement('div'),
     };
@@ -53,11 +63,11 @@ export class Cards {
         const {
           doctor,
           id,
-          status,
+          // status,
           urgency,
           purpose,
           name,
-          info,
+          details,
           pressure,
           index,
           illnesses,
@@ -67,11 +77,11 @@ export class Cards {
         const item = new Cards(
             doctor,
             id,
-            status,
+            // status,
             urgency,
             purpose,
             name,
-            info,
+            details,
             pressure,
             index,
             illnesses,
@@ -86,13 +96,14 @@ export class Cards {
   };
 
   handleClick() {
-    if (this.doctor === 'cardiologist') {
-      this.addInfoCardio();
-    } else if (this.doctor === 'therapist') {
-      this.addInfoCardio();
-    } else if (this.doctor === 'dentist') {
-      this.addInfoCardio();
-    }
+    // if (this.doctor === 'cardiologist') {
+    //   this.addInfoCardio();
+    // } else if (this.doctor === 'therapist') {
+    //   this.addInfoCardio();
+    // } else if (this.doctor === 'dentist') {
+    //   this.addInfoCardio();
+    // }
+    this.addInfoCardio();
   }
 
   addInfoCardio() {
@@ -106,19 +117,29 @@ export class Cards {
     const lastVisit = document.createElement('p');
     const btnEdit = document.createElement('button');
     const btnDelete = document.createElement('button');
-    btnEdit.textContent = 'Edit'
+    // btnEdit.textContent = 'Edit'
     btnEdit.classList.add('button-filter__item')
 
-    btnDelete.textContent = 'Delete'
+    // btnDelete.textContent = 'Delete'
     btnDelete.classList.add('button-filter__item')
 
     btnEdit.textContent = 'EDIT';
     btnDelete.textContent = 'DELETE';
-    pressure.textContent = this.pressure;
-    index.textContent = this.index;
-    illnesses.textContent = this.illnesses;
-    age.textContent = this.age;
-    lastVisit.textContent = this.lastVisit;
+    if(this.pressure){
+      pressure.textContent = 'Pressure: ' + this.pressure;
+    }
+    if(this.index){
+      index.textContent = 'Weight index: ' + this.index;
+    }
+    if(this.illnesses){
+      illnesses.textContent = 'Illnesses: ' + this.illnesses;
+    }
+    if(this.age){
+      age.textContent = 'Age: ' + this.age;
+    }
+    if(this.lastVisit){
+      lastVisit.textContent = 'Last visit: ' + this.lastVisit;
+    }
     addInfo.append(
         pressure,
         index,
@@ -130,7 +151,7 @@ export class Cards {
     );
     container.append(addInfo);
     btnDelete.addEventListener('click', () => this.btnDelete());
-    // btnEdit.addEventListener('click', ()=> this.btnDelete());
+    btnEdit.addEventListener('click', ()=> this.btnEdit());
   }
 
   async btnDelete() {
@@ -143,6 +164,40 @@ export class Cards {
     }
   }
 
+  async btnEdit(){
+    const id = this.id;
+    console.log(id);
+    await new Header().setModalDialog();
+    document.querySelector('#typeOfDoctor').value = this.doctor.toLowerCase()
+    new Header().chooseDoctorOnClick();
+    document.querySelector('#createVisitBtn').style.display = 'none';
+    const btn = document.querySelector('#updateVisitBtn')
+    btn.style.display = 'block';
+    btn.addEventListener('click', ()=> this.btnUpdate())
+  }
+
+  async visitFormOnSubmitUpdate(){
+    const card = new CreateVisit().getObj('visit-form-input');
+    const response = await API.putRequest(card, this.id)
+    // const response = await new CreateVisit().formSubmit(card);
+    const modalForm = document.getElementById('createVisitModal');
+    const inputsFrom = document.querySelectorAll('.inputsFrom');
+    modalForm.style.display = 'none';
+    modalForm.style.opacity = 0;
+    inputsFrom.forEach((el) => {
+      el.remove();
+    });
+    return response;
+  }
+
+  async btnUpdate(){
+    await this.visitFormOnSubmitUpdate();
+    document.getElementById('wrapper').style.display = 'none';
+    await getCardsBeforeBorder();
+    document.getElementById('chooseDoctorBtn').style.display = 'block';
+    document.querySelector("footer").style.position="fixed"
+  }
+
   render() {
     const {
       parent,
@@ -152,11 +207,13 @@ export class Cards {
       purpose,
       name,
       btn,
+      details,
     } = this.elements;
     doctor.textContent = 'Doctor: ' + this.doctor;
     urgency.textContent = 'Urgency: ' + this.urgency;
     purpose.textContent = 'Purpose: ' + this.purpose;
     name.textContent = 'Name: ' + this.name;
+    details.textContent = 'Details: ' + this.details;
     btn.textContent = 'Show more';
     btn.classList.add('button-filter__item')
     btn.classList.add('button-show__item')
@@ -164,7 +221,7 @@ export class Cards {
 
     btn.addEventListener('click', () => this.handleClick());
     container.classList.add('card-container');
-    container.append(doctor, urgency, purpose, name, btn);
+    container.append(doctor, urgency, purpose, name, details, btn);
     parent.append(container);
     return parent;
   }
