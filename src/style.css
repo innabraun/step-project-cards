@@ -46,12 +46,15 @@
   width: 150px;
   border-radius: 50px;
 }
+
+.button__item:hover {
+    background: #07575b;
+}
+
 #createVisitBtn, #updateVisitBtn {
   display: none;
 }
-.button__item:hover {
-  background: #07575b;
-}
+
 .form__wrapper {
   position: absolute;
   top: 0;
@@ -114,8 +117,8 @@
   position: absolute;
   font-family: Montserrat, sans-serif;
   font-size: 20px;
-  top: 260px;
-  left: 29%;
+  top: 360px;
+  left: 25%;
 }
 
 .message__text {
@@ -137,6 +140,7 @@
 }
 
 .border__img {
+    margin-top: 80px;
   width: 950px;
 }
 
@@ -199,6 +203,7 @@ footer {
 }
 
 .icon__out {
+    cursor: pointer;
       display: none;
         color: white;
         height: 80px;
@@ -274,6 +279,7 @@ footer {
   text-transform: uppercase;
   text-align: center;
   font-size: 25px;
+
 }
 .main {
   margin: 0 auto;
@@ -282,6 +288,12 @@ footer {
 .filter {
   display: flex;
   justify-content: center;
+        padding: 5px;
+        border: none;
+        outline: 0;
+        box-shadow: 5px 3px 5px #07575b;
+        margin-bottom: 10px;
+
 }
 
 .select-status,
@@ -296,7 +308,12 @@ footer {
 }
 
 #search {
-    height: 25px;
+    padding: 5px;
+    border: none;
+    outline: 0;
+    box-shadow: 5px 3px 5px #66a5ad;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .select-status, .select-urgency {
@@ -305,6 +322,12 @@ footer {
 
 .select {
   width: 180px;
+    padding: 5px;
+    border: none;
+    outline: 0;
+    box-shadow: 5px 3px 5px #66a5ad;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .button-filter__item {
@@ -318,6 +341,10 @@ footer {
     width: 100px;
     border-radius: 50px;
     margin: 0 4px;
+}
+
+.button-filter__item:hover {
+    background: #07575b;
 }
 
 .button-show__item {
