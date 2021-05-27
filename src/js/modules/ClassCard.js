@@ -167,9 +167,55 @@ export class Cards {
   async btnEdit(){
     const id = this.id;
     console.log(id);
-    await new Header().setModalDialog();
+
+
+    const isToken = isTokenInLocalStorage();
+    if (!isToken) {
+      const classForm = new ClassForm().render();
+      document.querySelector('.root').append(classForm);
+    } else {
+      document.querySelector('#wrapper').style.display = 'none';
+      document.querySelector('#chooseDoctorBtn').style.display = 'block';
+      document.querySelector('#typeOfDoctor').value = 'chose';
+      document.querySelector('#updateVisitBtn').style.display = 'none';
+      const modalForm = document.getElementById('createVisitModal');
+      const close = document.getElementById('modalVisitCloseButton');
+      const inputsFrom = document.createElement('div');
+      inputsFrom.classList.add("inputsFrom");
+      const wrapper = document.getElementById('wrapper');
+      wrapper.append(inputsFrom);
+      modalForm.style.display = 'block';
+      modalForm.style.opacity = 1;
+      close.addEventListener('click', () => {
+        const modalForm = document.getElementById('createVisitModal');
+        modalForm.style.display = 'none';
+        modalForm.style.opacity = 0;
+      });
+    }
+
+
     document.querySelector('#typeOfDoctor').value = this.doctor.toLowerCase()
-    new Header().chooseDoctorOnClick();
+
+
+    document.getElementById('wrapper').style.display = 'block';
+    document.getElementById('chooseDoctorBtn').style.display = 'none';
+
+    const value = document.getElementById('typeOfDoctor').value;
+    const wrapper = document.getElementById('wrapper');
+    const inputsFrom = document.querySelector('.inputsFrom');
+    const modal = document.getElementById('createVisitModal');
+
+    wrapper.append(inputsFrom);
+    if (
+        value === 'dentist' ||
+        value === 'therapist' ||
+        value === 'cardiologist'
+    ) {
+      new RenderVisit(value).render(inputsFrom);
+    } else if (!modal.classList.contains('show')) {
+    }
+
+
     document.querySelector('#createVisitBtn').style.display = 'none';
     const btn = document.querySelector('#updateVisitBtn')
     btn.style.display = 'block';
